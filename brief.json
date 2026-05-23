@@ -1,0 +1,290 @@
+{
+  "run_id": "run-1779495708244",
+  "job_index": 2,
+  "params": {
+    "owner_user_id": "user-1774822953462",
+    "owner_username": "admin",
+    "owner_display_name": "Administrator",
+    "count": 10,
+    "archetype": "tool",
+    "market": "Argentina - herramientas para juegos móviles, seguridad de cuenta y juego responsable",
+    "language": "es",
+    "country": "AR",
+    "brief": "Estimador de retiro para billetera de juego en Argentina.",
+    "notes": "Crear sitios en español rioplatense para Argentina. Deben ser herramientas web reales, con formulario funcional, resultado visible, copy claro y disclaimer de juego responsable. No prometer ganancias, no incentivar apuestas, no usar claims de casino. Localizar pagos/KYC a CBU, CVU, alias, DNI, CUIT/CUIL, billetera virtual y transferencia bancaria.\nEstima tiempos de retiro según método, monto y verificación de cuenta.\nCampos: método de retiro, monto, estado KYC, verificación bancaria/CVU/alias. Resultado: tiempo estimado y checklist antes de retirar.",
+    "import_notes": "",
+    "growth_job_id": "",
+    "growth_slug": "",
+    "growth_kind": "",
+    "external_site_request_id": "",
+    "external_client_ref": "",
+    "external_source_label": "",
+    "dashboard_mode": "builder",
+    "network_site_format": "forum",
+    "network_primary_topic": "",
+    "network_primary_geo": "",
+    "network_domain_pool": "forum-de-jeu.shop",
+    "network_hosting_pool": "4vps:netoper | server_id=447345 | ip=5.253.59.18 | ssh_user=root | ssh_port=22",
+    "network_dns_strategy": "auto_pool_assign",
+    "network_domain_flow": "manual",
+    "network_content_strategy": "",
+    "network_model_concept": "google/gemini-2.5-flash-lite:nitro",
+    "network_model_seo": "google/gemini-2.5-flash-lite:nitro",
+    "network_model_build": "google/gemini-2.5-flash",
+    "network_model_qa": "anthropic/claude-haiku-4.5",
+    "network_model_growth": "google/gemini-2.5-flash-lite:nitro",
+    "network_blueprint_id": "",
+    "mode": "production",
+    "run_kind": "generated_batch",
+    "publish_target": "render",
+    "requested_publish_target": "render",
+    "provider_space_id": "provider-space",
+    "provider_space_name": "Provider space",
+    "allow_url_fallback": false,
+    "railway_project_id_override": "",
+    "railway_environment_id_override": "",
+    "railway_service_id_override": "",
+    "railway_service_name_override": "",
+    "github_repo_private": true,
+    "stage_models": {
+      "ideation": "google/gemini-2.5-flash-lite:nitro",
+      "spec": "google/gemini-2.5-flash",
+      "copy": "google/gemini-2.5-flash-lite:nitro",
+      "qa": "anthropic/claude-haiku-4.5",
+      "escalation": "anthropic/claude-sonnet-4.6"
+    },
+    "archetype_display": "mixed batch",
+    "archetype_mix": [
+      "calculator",
+      "tool",
+      "generator"
+    ],
+    "site_idea_title": "Estimador de retiro de billetera de juego",
+    "site_idea_summary": "Estima tiempos de retiro según método, monto y verificación de cuenta.",
+    "forced_slug": "game-wallet-withdrawal-estimator"
+  },
+  "site_spec": {
+    "slug": "game-wallet-withdrawal-estimator",
+    "theme": {
+      "name": "Serious Fun",
+      "slug": "serious-fun",
+      "eyebrow": "Playful Precision",
+      "family": "serious-fun",
+      "moods": [
+        "playful",
+        "smart",
+        "optimistic",
+        "professional"
+      ],
+      "archetypes": [
+        "tool",
+        "generator"
+      ],
+      "niches": [
+        "team tools",
+        "education",
+        "community tools",
+        "simple utility",
+        "content tools"
+      ],
+      "keywords": [
+        "joy",
+        "playful",
+        "smart",
+        "friendly",
+        "color"
+      ],
+      "token_index": [
+        "color",
+        "community",
+        "content",
+        "education",
+        "friendly",
+        "fun",
+        "generator",
+        "joy",
+        "optimistic",
+        "playful",
+        "precision",
+        "professional",
+        "serious",
+        "simple",
+        "smart",
+        "team",
+        "tool",
+        "tools",
+        "utility"
+      ],
+      "font_embed": "https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap",
+      "display_font": "\"Outfit\", sans-serif",
+      "body_font": "\"Inter\", sans-serif",
+      "layout": "split",
+      "card_style": "glass",
+      "button_style": "gradient",
+      "decor_style": "ribbons",
+      "hero_template": "1.08fr 0.92fr",
+      "seo_template": "1.18fr 0.82fr",
+      "feature_columns": 3,
+      "faq_columns": 3,
+      "hero_min_height": "78vh",
+      "panel_radius": "28px",
+      "card_radius": "26px",
+      "chip_radius": "999px",
+      "button_radius": "18px",
+      "outline_width": "1px",
+      "backdrop_blur": "16px",
+      "palette": {
+        "bg": "linear-gradient(150deg, #eff6ff 0%, #dbeafe 32%, #fde68a 100%)",
+        "surface": "rgba(255,255,255,0.86)",
+        "surface_border": "rgba(37,99,235,0.12)",
+        "text": "#172554",
+        "muted": "#475569",
+        "accent": "#2563eb",
+        "accent_alt": "#f97316",
+        "hero_glow": "rgba(249, 115, 22, 0.15)",
+        "button_text": "#f8fafc",
+        "panel_alt": "rgba(255,255,255,0.66)",
+        "shadow": "0 24px 62px rgba(37, 99, 235, 0.1)",
+        "input_fill": "rgba(255,255,255,0.54)"
+      }
+    },
+    "structure": {
+      "name": "Stacked Spotlight",
+      "slug": "stacked-spotlight",
+      "hero_variant": "stacked",
+      "proof_variant": "steps",
+      "section_order": [
+        "proof",
+        "seo",
+        "features",
+        "faq"
+      ],
+      "feature_columns": 2,
+      "faq_columns": 2,
+      "family": "spotlight",
+      "moods": [
+        "editorial",
+        "focused",
+        "premium"
+      ],
+      "archetypes": [
+        "tool",
+        "calculator",
+        "generator"
+      ],
+      "niches": [
+        "premium services",
+        "planning",
+        "renovation",
+        "advice"
+      ],
+      "keywords": [
+        "spotlight",
+        "stacked",
+        "story",
+        "premium"
+      ],
+      "token_index": [
+        "advice",
+        "calculator",
+        "editorial",
+        "faq",
+        "features",
+        "focused",
+        "generator",
+        "planning",
+        "premium",
+        "proof",
+        "renovation",
+        "seo",
+        "services",
+        "spotlight",
+        "stacked",
+        "steps",
+        "story",
+        "tool"
+      ]
+    },
+    "render_direction": "editorial-ledger",
+    "render_direction_name": "Editorial Ledger",
+    "page_blueprint": "briefing-board",
+    "page_blueprint_name": "Briefing Board",
+    "title": "Estimador de retiro de billetera de juego",
+    "tagline": "Calculá tu Retiro",
+    "description": "Estima tiempos de retiro de tu billetera de juego en Argentina según método, monto y verificación de cuenta.",
+    "feature_prefix": "Módulo",
+    "action": "Usar la herramienta",
+    "cta_primary": "Estimar Tiempo",
+    "cta_secondary": "Leer la FAQ",
+    "inputs": [
+      {
+        "id": "primary",
+        "label": "Texto o necesidad",
+        "type": "text",
+        "placeholder": "Tu necesidad principal",
+        "weight": 1.0
+      },
+      {
+        "id": "context",
+        "label": "Contexto",
+        "type": "text",
+        "placeholder": "Situación u objetivo",
+        "weight": 1.0
+      },
+      {
+        "id": "scope",
+        "label": "Intensidad",
+        "type": "number",
+        "placeholder": "3",
+        "weight": 0.3
+      }
+    ],
+    "hero_metrics": [
+      {
+        "value": "Editorial Ledger",
+        "label": "Cadencia"
+      },
+      {
+        "value": "3",
+        "label": "Entradas"
+      },
+      {
+        "value": "Resultado recomendado",
+        "label": "Salida"
+      }
+    ],
+    "trust_labels": [
+      "Editorial Ledger",
+      "Estimar Tiempo",
+      "Resultado recomendado",
+      "Utilidad inmediata",
+      "Estructura SEO clara"
+    ],
+    "result_label": "Resultado recomendado",
+    "result_unit": "",
+    "runtime_mode": "analysis_tool",
+    "page_variant": "editorial",
+    "faq_topic": "Estimador de retiro de billetera de juego",
+    "faq_entries": [
+      {
+        "question": "¿Por qué usar esta herramienta para Estimador de retiro de billetera de juego?",
+        "answer": "Ayuda a definir la necesidad rápidamente y a guiar hacia una siguiente acción clara en Argentina - herramientas para juegos móviles, seguridad de cuenta y juego responsable."
+      },
+      {
+        "question": "¿El resultado es inmediato?",
+        "answer": "Sí. La interfaz está pensada para devolver una respuesta rápida y clara desde la primera interacción."
+      },
+      {
+        "question": "¿La página está preparada para SEO?",
+        "answer": "Sí. La estructura combina utilidad, claridad editorial y señales de confianza sin recargar la experiencia."
+      }
+    ],
+    "seo_paragraphs": [
+      "Esta página está diseñada para captar una intención fuerte sobre Estimador de retiro de billetera de juego y convertirla en una acción medible en Argentina - herramientas para juegos móviles, seguridad de cuenta y juego responsable.",
+      "La estructura hero-first mejora la claridad, reduce fricción y funciona bien tanto en móvil como en escritorio.",
+      "La base se mantiene ligera para facilitar pruebas, QA continua y variaciones SEO repetibles."
+    ],
+    "document_html": "<!DOCTYPE html>\n<html lang=\"es\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Estimador de retiro de billetera de juego | Calculá tu Retiro</title>\n    <meta name=\"description\" content=\"Estima tiempos de retiro de tu billetera de juego en Argentina según método, monto y verificación de cuenta.\">\n    <style>\n        :root {\n            --primary-color: #004d99;\n            --secondary-color: #e0e6eb;\n            --accent-color: #ff6600;\n            --text-color: #333;\n            --background-color: #f7f9fb;\n            --card-background: #ffffff;\n            --border-radius: 8px;\n            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);\n            --font-display: \"Montserrat\", sans-serif;\n            --font-body: \"Open Sans\", sans-serif;\n        }\n\n        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600&display=swap');\n\n        body {\n            font-family: var(--font-body);\n            line-height: 1.6;\n            color: var(--text-color);\n            background-color: var(--background-color);\n            margin: 0;\n            padding: 0;\n            display: flex;\n            flex-direction: column;\n            align-items: center;\n            min-height: 100vh;\n        }\n\n        header {\n            background-color: var(--primary-color);\n            color: #ffffff;\n            padding: 1.5rem 0;\n            width: 100%;\n            text-align: center;\n            box-shadow: var(--shadow);\n            margin-bottom: 2rem;\n        }\n\n        h1 {\n            font-family: var(--font-display);\n            font-size: 2.8rem;\n            margin: 0;\n            line-height: 1.1;\n        }\n\n        .container {\n            width: 90%;\n            max-width: 1200px;\n            margin: 0 auto 2rem auto;\n            display: grid;\n            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));\n            gap: 2rem;\n        }\n\n        .card {\n            background-color: var(--card-background);\n            border-radius: var(--border-radius);\n            box-shadow: var(--shadow);\n            padding: 2rem;\n            display: flex;\n            flex-direction: column;\n        }\n\n        h2 {\n            font-family: var(--font-display);\n            color: var(--primary-color);\n            font-size: 1.8rem;\n            margin-top: 0;\n            margin-bottom: 1.5rem;\n        }\n\n        h3 {\n            font-family: var(--font-display);\n            color: var(--primary-color);\n            font-size: 1.4rem;\n            margin-top: 0;\n            margin-bottom: 1rem;\n        }\n\n        label {\n            display: block;\n            margin-bottom: 0.5rem;\n            font-weight: 600;\n            color: var(--text-color);\n        }\n\n        input[type=\"number\"],\n        select {\n            width: calc(100% - 20px);\n            padding: 10px;\n            margin-bottom: 1.5rem;\n            border: 1px solid #ccc;\n            border-radius: var(--border-radius);\n            font-size: 1rem;\n            box-sizing: border-box;\n        }\n\n        input[type=\"number\"]:focus,\n        select:focus {\n            border-color: var(--accent-color);\n            outline: none;\n            box-shadow: 0 0 0 2px rgba(255, 102, 0, 0.2);\n        }\n\n        button {\n            background-color: var(--accent-color);\n            color: white;\n            padding: 12px 25px;\n            border: none;\n            border-radius: var(--border-radius);\n            font-size: 1.1rem;\n            font-weight: bold;\n            cursor: pointer;\n            transition: background-color 0.3s ease, transform 0.2s ease;\n            width: 100%;\n            margin-top: 1rem;\n        }\n\n        button:hover {\n            background-color: #e65c00;\n            transform: translateY(-2px);\n        }\n\n        #tool-result {\n            background-color: var(--secondary-color);\n            border-left: 5px solid var(--accent-color);\n            padding: 1.5rem;\n            margin-top: 2rem;\n            border-radius: var(--border-radius);\n            flex-grow: 1;\n        }\n\n        #tool-result p {\n            margin-bottom: 0.8rem;\n        }\n\n        #tool-result strong {\n            color: var(--primary-color);\n        }\n\n        .checklist ul {\n            list-style: none;\n            padding: 0;\n        }\n\n        .checklist li {\n            background: url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"%23004d99\"><path d=\"M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z\"/></svg>') no-repeat left center;\n            background-size: 20px;\n            padding-left: 30px;\n            margin-bottom: 0.8rem;\n        }\n\n        .disclaimer {\n            font-size: 0.9rem;\n            color: #666;\n            margin-top: 2rem;\n            padding: 1.5rem;\n            background-color: #f0f0f0;\n            border-radius: var(--border-radius);\n            border-left: 4px solid #ccc;\n        }\n        \n        .disclaimer p {\n            margin-bottom: 0.5rem;\n        }\n\n        .seo-section {\n            background-color: var(--card-background);\n            box-shadow: var(--shadow);\n            padding: 2rem;\n            border-radius: var(--border-radius);\n            margin-top: 2rem;\n            width: 90%;\n            max-width: 1200px;\n        }\n\n        .seo-section h3 {\n            font-size: 1.5rem;\n            color: var(--primary-color);\n            margin-bottom: 1.5rem;\n        }\n\n        .seo-section p {\n            margin-bottom: 1rem;\n            color: #555;\n        }\n\n        .seo-section ul {\n            list-style: disc;\n            margin-left: 20px;\n            margin-bottom: 1rem;\n            color: #555;\n        }\n\n        .seo-section li {\n            margin-bottom: 0.5rem;\n        }\n\n        @media (min-width: 768px) {\n            .container {\n                grid-template-columns: 2fr 1fr;\n            }\n            .card.full-width {\n                grid-column: 1 / -1;\n            }\n            #tool-result {\n                grid-column: 2 / 3;\n                grid-row: 1 / 3;\n                height: auto; \n            }\n            form {\n                grid-column: 1 / 2;\n            }\n        }\n    </style>\n    <meta name=\"robots\" content=\"index, follow\">\n    <link rel=\"canonical\" href=\"https://game-wallet-withdrawal-estimator.onrender.com\">\n    <meta property=\"og:title\" content=\"Estimador de retiro de billetera de juego\">\n    <meta property=\"og:description\" content=\"Estima tiempos de retiro de tu billetera de juego en Argentina según método, monto y verificación de cuenta.\">\n    <meta property=\"og:url\" content=\"https://game-wallet-withdrawal-estimator.onrender.com\">\n    <meta property=\"og:type\" content=\"website\">\n    <script type=\"application/ld+json\">{\"@context\": \"https://schema.org\", \"@type\": \"WebApplication\", \"name\": \"Estimador de retiro de billetera de juego\", \"description\": \"Estima tiempos de retiro de tu billetera de juego en Argentina según método, monto y verificación de cuenta.\", \"url\": \"https://game-wallet-withdrawal-estimator.onrender.com\", \"applicationCategory\": \"UtilityApplication\", \"operatingSystem\": \"Web Browser\"}</script>\n</head>\n<body data-site-slug=\"game-wallet-withdrawal-estimator\" data-runtime-mode=\"analysis_tool\">\n    <header>\n        <h1>Estimador de Retiro de Billetera de Juego</h1>\n        <p>Estima el tiempo que tardarías en recibir tus fondos.</p>\n    </header>\n\n    <div class=\"container\">\n        <div class=\"card\">\n            <h2>Calculá tu Retiro</h2>\n            <form id=\"tool-form\">\n                <label for=\"metodoRetiro\">Método de Retiro:</label>\n                <select id=\"metodoRetiro\" required>\n                    <option value=\"\">Seleccione un método</option>\n                    <option value=\"bancaria\">Transferencia Bancaria (CBU/CVU)</option>\n                    <option value=\"billetera\">Billetera Virtual (Mercado Pago, Ualá, etc.)</option>\n                    <option value=\"efectivo\">Retiro en Efectivo (Puntos de pago)</option>\n                </select>\n\n                <label for=\"montoRetiro\">Monto a Retirar (ARS):</label>\n                <input type=\"number\" id=\"montoRetiro\" min=\"100\" max=\"1000000\" placeholder=\"Ej: 5000\" required>\n\n                <label for=\"estadoKYC\">Estado de Verificación KYC:</label>\n                <select id=\"estadoKYC\" required>\n                    <option value=\"\">Seleccione su estado</option>\n                    <option value=\"completo\">Verificación Completa (DNI, CUIT/CUIL)</option>\n                    <option value=\"parcial\">Verificación Parcial</option>\n                    <option value=\"ninguno\">Sin Verificación</option>\n                </select>\n\n                <label for=\"verificacionBancaria\">Verificación de Cuenta de Destino:</label>\n                <select id=\"verificacionBancaria\" required>\n                    <option value=\"\">Seleccione su estado</option>\n                    <option value=\"verificado\">Cuenta verificada (mismo titular, alias)</option>\n                    <option value=\"pendiente\">Cuenta pendiente de verificación</option>\n                </select>\n\n                <button type=\"submit\" id=\"tool-submit\">Estimar Tiempo</button>\n            </form>\n        </div>\n\n        <div class=\"card\" id=\"tool-result\">\n            <h3 id=\"result-headline\">Resultado de la Estimación</h3>\n            <p>Completá el formulario para ver tu tiempo de retiro estimado.</p>\n        </div>\n\n        <div class=\"card full-width\">\n            <h2>Consideraciones importantes para tu juego responsable</h2>\n            <p>Retirar tus fondos es parte de una experiencia de juego sana. Entender los tiempos y procesos te ayuda a gestionar mejor tus expectativas y finanzas.</p>\n            <div class=\"checklist\">\n                <h3>Antes de retirar, verificá:</h3>\n                <ul>\n                    <li>Tu cuenta de juego está completamente verificada (KYC).</li>\n                    <li>Los datos de tu cuenta bancaria o billetera virtual (CBU, CVU, alias, DNI/CUIL) son correctos y coinciden con tu identidad.</li>\n                    <li>Cumpliste con los requisitos de apuesta si recibiste bonos o promociones.</li>\n                    <li>El monto a retirar está dentro de los límites mínimos y máximos establecidos por la plataforma.</li>\n                    <li>No hay restricciones activas en tu cuenta por seguridad o juego responsable.</li>\n                </ul>\n            </div>\n            <p>Recordá que el juego debe ser siempre una forma de entretenimiento. Establecé límites de tiempo y dinero, y buscá ayuda si sentís que el juego está afectando tu vida.</p>\n            <a href=\"#\" style=\"text-decoration: none; display: inline-block; margin-top: 1rem;\" data-affiliate-slot=\"juego-responsable-info\">\n                <button style=\"background-color: var(--primary-color); width: auto;\">Más sobre Juego Responsable</button>\n            </a>\n        </div>\n    </div>\n\n    <div class=\"disclaimer container\">\n        <p><strong>Advertencia de Juego Responsable:</strong> Esta herramienta es un estimador y no garantiza tiempos exactos, los cuales pueden variar según la plataforma, carga operativa y políticas bancarias. El juego es para mayores de 18 años. Jugá con moderación. Si creés que tenés un problema con el juego, buscá ayuda profesional. El juego patológico es perjudicial para vos y tu familia.</p>\n    </div>\n\n    <div class=\"seo-section\">\n        <h3>Encontrá la mejor forma de gestionar tus fondos en Argentina</h3>\n        <p>En el mundo de los juegos móviles y plataformas online en Argentina, la rapidez y seguridad al retirar tus ganancias es fundamental. Muchos usuarios se preguntan: \"¿Cuánto tarda un retiro de dinero en juegos?\", \"¿Cómo cobrar CBU en billetera virtual?\", o \"¿Qué necesito para retirar fondos de una plataforma?\". Nuestro estimador te ayuda a entender los tiempos asociados a cada método y los requisitos para una transacción exitosa.</p>\n        <p>Conocé las particularidades de cada opción de retiro:</p>\n        <ul>\n            <li><strong>Transferencia Bancaria (CBU/CVU):</strong> Es el método más tradicional y seguro, ideal para montos mayores. Requiere que tu CBU o CVU esté a tu nombre y coincida con tu DNI.</li>\n            <li><strong>Billeteras Virtuales (Mercado Pago, Ualá, Naranja X, etc.):</strong> Ofrecen velocidad y facilidad, siendo populares para retiros de montos intermedios. Asegurate de tener tu alias o CVU correctamente registrado.</li>\n            <li><strong>Retiro en Efectivo (Puntos de pago):</strong> Para quienes prefieren el efectivo, aunque suele implicar tiempos de procesamiento adicionales y límites específicos.</li>\n        </ul>\n        <p>La verificación KYC (Know Your Customer) es un paso crucial para tu seguridad y para cumplir con las regulaciones de la AFIP. Una cuenta verificada con tu DNI, CUIT o CUIL acelera los procesos y evita demoras. ¡Usá nuestro estimador para planificar tus finanzas de juego de manera inteligente y responsable!</p>\n    </div>\n\n    <script>\n        document.getElementById('tool-form').addEventListener('submit', function(event) {\n            event.preventDefault();\n\n            const metodoRetiro = document.getElementById('metodoRetiro').value;\n            const montoRetiro = parseInt(document.getElementById('montoRetiro').value);\n            const estadoKYC = document.getElementById('estadoKYC').value;\n            const verificacionBancaria = document.getElementById('verificacionBancaria').value;\n\n            let tiempoEstimadoMin = 0;\n            let tiempoEstimadoMax = 0;\n            let mensajeAdicional = '';\n\n            // Lógica de estimación\n            if (metodoRetiro === 'bancaria') {\n                tiempoEstimadoMin = 24; // Horas\n                tiempoEstimadoMax = 72; // Horas\n                if (montoRetiro > 50000) {\n                    tiempoEstimadoMax += 24; // Montos grandes pueden demorar más\n                    mensajeAdicional += 'Los retiros de altos montos por transferencia bancaria pueden requerir verificación adicional y demorar un poco más. ';\n                }\n            } else if (metodoRetiro === 'billetera') {\n                tiempoEstimadoMin = 2; // Horas\n                tiempoEstimadoMax = 24; // Horas\n                if (montoRetiro > 25000) {\n                    tiempoEstimadoMax += 12; // Montos grandes\n                    mensajeAdicional += 'Retiros significativos a billeteras virtuales pueden tardar un poco más en procesarse. ';\n                }\n            } else if (metodoRetiro === 'efectivo') {\n                tiempoEstimadoMin = 48; // Horas\n                tiempoEstimadoMax = 96; // Horas\n                mensajeAdicional += 'El retiro en efectivo depende de la disponibilidad en los puntos de pago. ';\n            }\n\n            // Ajuste por estado KYC\n            if (estadoKYC === 'parcial') {\n                tiempoEstimadoMin += 6;\n                tiempoEstimadoMax += 12;\n                mensajeAdicional += 'La verificación parcial de KYC puede generar demoras adicionales. ';\n            } else if (estadoKYC === 'ninguno') {\n                tiempoEstimadoMin += 24;\n                tiempoEstimadoMax += 48;\n                mensajeAdicional += '<strong>¡Importante!</strong> La falta de verificación KYC causará retrasos significativos o impedirá el retiro. ';\n            }\n\n            // Ajuste por verificación bancaria\n            if (verificacionBancaria === 'pendiente') {\n                tiempoEstimadoMin += 12;\n                tiempoEstimadoMax += 24;\n                mensajeAdicional += 'La verificación de la cuenta de destino puede prolongar el proceso. ';\n            }\n\n            // Formato de resultado\n            let resultadoHTML = `<h3>Tu Retiro Estimado:</h3>`;\n            if (estadoKYC === 'ninguno') {\n                resultadoHTML += `<p style=\"color: red; font-weight: bold;\">❌ Tu cuenta necesita verificación completa (KYC) antes de poder retirar. Esto puede demorar el proceso.</p>`;\n                resultadoHTML += `<p>Si completás la verificación, tu retiro podría tardar entre <strong>${tiempoEstimadoMin} y ${tiempoEstimadoMax} horas</strong> hábiles.</p>`;\n            } else {\n                resultadoHTML += `<p>El tiempo estimado para recibir tu dinero es de <strong>entre ${tiempoEstimadoMin} y ${tiempoEstimadoMax} horas hábiles</strong>.</p>`;\n            }\n            \n            if (mensajeAdicional) {\n                resultadoHTML += `<p>${mensajeAdicional}</p>`;\n            }\n\n            resultadoHTML += `<p><strong>Recordá:</strong> Estos tiempos son estimaciones y pueden variar. Siempre revisá las políticas de retiro de tu plataforma de juego.</p>`;\n\n            document.getElementById('tool-result').innerHTML = resultadoHTML;\n        });\n    </script>\n<div id=\"qa-smoke-result\" hidden></div>\n<script id=\"farmbuilder-affiliate-helper\">\n(function () {\n  window.__UTILITY_AFFILIATE_MAP = window.__UTILITY_AFFILIATE_MAP || {};\n  document.addEventListener(\"click\", function (event) {\n    const target = event.target.closest(\"[data-affiliate-slot]\");\n    if (!target) return;\n    const slot = target.getAttribute(\"data-affiliate-slot\");\n    const href = window.__UTILITY_AFFILIATE_MAP[slot];\n    if (!href) return;\n    if (target.tagName && target.tagName.toLowerCase() === \"a\") {\n      target.setAttribute(\"href\", href);\n      target.removeAttribute(\"rel\");\n      return;\n    }\n    event.preventDefault();\n    window.open(href, \"_blank\");\n  }, true);\n})();\n</script>\n<script id=\"farmbuilder-functional-qa\">\n(function () {\n  function marker() {\n    let node = document.getElementById(\"qa-smoke-result\");\n    if (node) return node;\n    node = document.createElement(\"div\");\n    node.id = \"qa-smoke-result\";\n    node.hidden = true;\n    document.body.appendChild(node);\n    return node;\n  }\n\n  let qaFinished = false;\n  let qaWatchdog = null;\n\n  function normalize(text) {\n    return String(text || \"\").replace(/\\s+/g, \" \").trim();\n  }\n\n  function findForm() {\n    return document.getElementById(\"tool-form\") || document.querySelector(\"form\");\n  }\n\n  function findResult() {\n    return (\n      document.getElementById(\"tool-result\") ||\n      document.querySelector(\"[data-result]\") ||\n      document.querySelector(\".tool-result, .result-card, .result, .results, .output, .preview, .diagnostic, .analysis\")\n    );\n  }\n\n  function primaryAction(form) {\n    if (!form) return null;\n    return (\n      document.getElementById(\"tool-submit\") ||\n      form.querySelector(\"#tool-submit\") ||\n      form.querySelector(\"[data-primary-action]\") ||\n      form.querySelector(\"button[type=submit]\") ||\n      form.querySelector(\"button\") ||\n      form.querySelector(\"input[type=submit]\")\n    );\n  }\n\n  function resultSignature(node) {\n    if (!node) return \"\";\n    const text = normalize(node.textContent);\n    const html = normalize(node.innerHTML).slice(0, 600);\n    return `${text}||${html}`;\n  }\n\n  function resultHeadline(node) {\n    if (!node) return \"\";\n    const heading = node.querySelector(\"h1, h2, h3, strong, b\");\n    return normalize(heading ? heading.textContent : \"\");\n  }\n\n  function sampleText(field) {\n    const key = `${field.id || \"\"} ${field.name || \"\"} ${field.placeholder || \"\"}`.toLowerCase();\n    if (/email/.test(key)) return \"bonjour@example.com\";\n    if (/url|site|website|lien/.test(key)) return \"https://example.com/offre-solaire\";\n    if (/phone|tel|mobile/.test(key)) return \"0612345678\";\n    if (/ville|city|localisation|location|region|departement|postal/.test(key)) return \"Paris\";\n    if (/orientation/.test(key)) return \"sud\";\n    if (/keyword|theme|topic|sujet|subject/.test(key)) return \"energie solaire domestique\";\n    if (/titre|title/.test(key)) return \"Simulateur solaire maison\";\n    if (/nom|name|project/.test(key)) return \"Projet Horizon\";\n    if (/description|notes|content|message/.test(key)) return \"Maison individuelle exposee sud avec toiture exploitable.\";\n    return field.placeholder || \"France\";\n  }\n\n  function sampleNumber(field) {\n    const key = `${field.id || \"\"} ${field.name || \"\"}`.toLowerCase();\n    if (/inclinaison|angle|slope/.test(key)) return \"30\";\n    if (/surface|size|m2|sqm/.test(key)) return \"28\";\n    if (/annee|year/.test(key)) return \"2024\";\n    if (/prix|price|budget|cost|amount|montant/.test(key)) return \"12000\";\n    const min = Number(field.min || \"\");\n    const max = Number(field.max || \"\");\n    if (Number.isFinite(min) && Number.isFinite(max) && max >= min) {\n      return String(Math.min(max, Math.max(min, min + Math.round((max - min) * 0.35))));\n    }\n    if (Number.isFinite(min)) return String(Math.max(min, 12));\n    if (Number.isFinite(max)) return String(Math.min(max, 12));\n    return field.value || \"12\";\n  }\n\n  function applySample(field) {\n    const tag = (field.tagName || \"\").toLowerCase();\n    const type = (field.type || \"\").toLowerCase();\n    if (field.disabled) return;\n    if (type === \"hidden\" || type === \"submit\" || type === \"button\" || type === \"reset\" || type === \"image\" || type === \"file\") {\n      return;\n    }\n    const currentValue = normalize(field.value);\n    if (tag === \"select\") {\n      if (currentValue) return;\n      const option = Array.from(field.options || []).find((item) => item.value && !item.disabled) || field.options[0];\n      if (option) field.value = option.value;\n      return;\n    }\n    if (type === \"checkbox\") {\n      if (field.checked) return;\n      field.checked = true;\n      return;\n    }\n    if (type === \"radio\") {\n      if (field.checked) return;\n      field.checked = true;\n      return;\n    }\n    if (type === \"date\") {\n      if (currentValue) return;\n      field.value = \"2026-03-01\";\n      return;\n    }\n    if (type === \"email\") {\n      if (currentValue) return;\n      field.value = \"bonjour@example.com\";\n      return;\n    }\n    if (type === \"url\") {\n      if (currentValue) return;\n      field.value = \"https://example.com/offre-solaire\";\n      return;\n    }\n    if (type === \"tel\") {\n      if (currentValue) return;\n      field.value = \"0612345678\";\n      return;\n    }\n    if (type === \"color\") {\n      if (currentValue) return;\n      field.value = \"#2f855a\";\n      return;\n    }\n    if (type === \"number\" || type === \"range\") {\n      if (currentValue) return;\n      field.value = sampleNumber(field);\n      return;\n    }\n    if (currentValue) return;\n    field.value = sampleText(field);\n  }\n\n  function stamp(status, detail, headline, primary) {\n    if (qaFinished) return;\n    qaFinished = true;\n    if (qaWatchdog) {\n      window.clearTimeout(qaWatchdog);\n      qaWatchdog = null;\n    }\n    const node = marker();\n    node.dataset.status = status;\n    node.dataset.mode = \"native-form\";\n    node.dataset.detail = detail || \"\";\n    node.dataset.headline = headline || \"\";\n    node.dataset.primary = primary || \"\";\n    node.dataset.viewport = window.innerWidth <= 640 ? \"mobile\" : \"desktop\";\n    window.setTimeout(function () {\n      try {\n        window.stop();\n      } catch (_error) {}\n    }, 0);\n  }\n\n  function installModalGuards() {\n    const noop = function () {};\n    const approve = function () { return true; };\n    const empty = function () { return \"\"; };\n    try { window.alert = noop; } catch (_error) {}\n    try { window.confirm = approve; } catch (_error) {}\n    try { window.prompt = empty; } catch (_error) {}\n  }\n\n  function triggerAction(form, action) {\n    try {\n      if (typeof form.requestSubmit === \"function\") {\n        form.requestSubmit(action || undefined);\n        return;\n      }\n    } catch (_error) {}\n    if (action && typeof action.click === \"function\") {\n      action.click();\n      return;\n    }\n    form.dispatchEvent(new Event(\"submit\", { bubbles: true, cancelable: true }));\n  }\n\n  function inspectResult(before, attemptsLeft) {\n    const result = findResult();\n    if (!result) {\n      stamp(\"fail\", \"Result area was not found.\", \"\");\n      return;\n    }\n    const after = resultSignature(result);\n    const text = normalize(result.textContent);\n    if (after && after !== before && text.length >= 24) {\n      const primary = result.querySelector(\"a[href], button[data-href], [data-primary-url]\") || document.querySelector(\"#tool-result a[href]\");\n      stamp(\"pass\", \"Native form submission updated the result area.\", resultHeadline(result), primary ? (primary.getAttribute(\"href\") || primary.getAttribute(\"data-primary-url\") || \"\") : \"\");\n      return;\n    }\n    if (attemptsLeft > 0) {\n      window.setTimeout(function () {\n        inspectResult(before, attemptsLeft - 1);\n      }, 250);\n      return;\n    }\n    stamp(\"fail\", \"Result area did not render usable output.\", resultHeadline(result));\n  }\n\n  function runSmoke() {\n    const params = new URLSearchParams(window.location.search);\n    if (params.get(\"__qa\") !== \"functional\") return;\n    qaWatchdog = window.setTimeout(function () {\n      stamp(\"fail\", \"QA smoke timed out before the page reported a usable result.\", \"\");\n    }, 7000);\n    const form = findForm();\n    if (!form) {\n      stamp(\"fail\", \"Primary tool form was not found.\", \"\");\n      return;\n    }\n    const result = findResult();\n    const before = resultSignature(result);\n    installModalGuards();\n    try {\n      form.querySelectorAll(\"input, select, textarea\").forEach(applySample);\n    } catch (error) {\n      stamp(\"fail\", error && error.message ? `QA smoke sample failed: ${error.message}` : \"QA smoke sample failed before submit.\", \"\");\n      return;\n    }\n    const action = primaryAction(form);\n    try {\n      triggerAction(form, action);\n    } catch (error) {\n      stamp(\"fail\", error && error.message ? `QA smoke submit failed: ${error.message}` : \"QA smoke submit failed.\", \"\");\n      return;\n    }\n    inspectResult(before, 10);\n  }\n\n  window.addEventListener(\"error\", function (event) {\n    const message = event && event.message ? event.message : \"JavaScript runtime error during QA smoke.\";\n    stamp(\"fail\", `QA smoke JS error: ${message}`, \"\");\n  }, { once: true });\n\n  window.addEventListener(\"unhandledrejection\", function (event) {\n    const reason = event && event.reason;\n    const detail = typeof reason === \"string\"\n      ? reason\n      : reason && reason.message\n        ? reason.message\n        : \"Unhandled promise rejection during QA smoke.\";\n    stamp(\"fail\", `QA smoke rejection: ${detail}`, \"\");\n  }, { once: true });\n\n  if (document.readyState === \"loading\") {\n    document.addEventListener(\"DOMContentLoaded\", function () {\n      window.setTimeout(runSmoke, 60);\n    }, { once: true });\n  } else {\n    window.setTimeout(runSmoke, 60);\n  }\n})();\n</script>\n</body>\n</html>",
+    "generation_mode": "direct_html"
+  }
+}
