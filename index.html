@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estimador de retiro de billetera de juego | Calculá tu Retiro</title>
+    <meta name="description" content="Estima tiempos de retiro de tu billetera de juego en Argentina según método, monto y verificación de cuenta.">
+    <style>
+        :root {
+            --primary-color: #004d99;
+            --secondary-color: #e0e6eb;
+            --accent-color: #ff6600;
+            --text-color: #333;
+            --background-color: #f7f9fb;
+            --card-background: #ffffff;
+            --border-radius: 8px;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --font-display: "Montserrat", sans-serif;
+            --font-body: "Open Sans", sans-serif;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600&display=swap');
+
+        body {
+            font-family: var(--font-body);
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            padding: 1.5rem 0;
+            width: 100%;
+            text-align: center;
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            font-family: var(--font-display);
+            font-size: 2.8rem;
+            margin: 0;
+            line-height: 1.1;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto 2rem auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background-color: var(--card-background);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        h2 {
+            font-family: var(--font-display);
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+        }
+
+        h3 {
+            font-family: var(--font-display);
+            color: var(--primary-color);
+            font-size: 1.4rem;
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+        input[type="number"],
+        select {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 1.5rem;
+            border: 1px solid #ccc;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+
+        input[type="number"]:focus,
+        select:focus {
+            border-color: var(--accent-color);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(255, 102, 0, 0.2);
+        }
+
+        button {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        button:hover {
+            background-color: #e65c00;
+            transform: translateY(-2px);
+        }
+
+        #tool-result {
+            background-color: var(--secondary-color);
+            border-left: 5px solid var(--accent-color);
+            padding: 1.5rem;
+            margin-top: 2rem;
+            border-radius: var(--border-radius);
+            flex-grow: 1;
+        }
+
+        #tool-result p {
+            margin-bottom: 0.8rem;
+        }
+
+        #tool-result strong {
+            color: var(--primary-color);
+        }
+
+        .checklist ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .checklist li {
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="%23004d99"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>') no-repeat left center;
+            background-size: 20px;
+            padding-left: 30px;
+            margin-bottom: 0.8rem;
+        }
+
+        .disclaimer {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background-color: #f0f0f0;
+            border-radius: var(--border-radius);
+            border-left: 4px solid #ccc;
+        }
+        
+        .disclaimer p {
+            margin-bottom: 0.5rem;
+        }
+
+        .seo-section {
+            background-color: var(--card-background);
+            box-shadow: var(--shadow);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            margin-top: 2rem;
+            width: 90%;
+            max-width: 1200px;
+        }
+
+        .seo-section h3 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .seo-section p {
+            margin-bottom: 1rem;
+            color: #555;
+        }
+
+        .seo-section ul {
+            list-style: disc;
+            margin-left: 20px;
+            margin-bottom: 1rem;
+            color: #555;
+        }
+
+        .seo-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                grid-template-columns: 2fr 1fr;
+            }
+            .card.full-width {
+                grid-column: 1 / -1;
+            }
+            #tool-result {
+                grid-column: 2 / 3;
+                grid-row: 1 / 3;
+                height: auto; 
+            }
+            form {
+                grid-column: 1 / 2;
+            }
+        }
+    </style>
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://game-wallet-withdrawal-estimator.onrender.com">
+    <meta property="og:title" content="Estimador de retiro de billetera de juego">
+    <meta property="og:description" content="Estima tiempos de retiro de tu billetera de juego en Argentina según método, monto y verificación de cuenta.">
+    <meta property="og:url" content="https://game-wallet-withdrawal-estimator.onrender.com">
+    <meta property="og:type" content="website">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Estimador de retiro de billetera de juego", "description": "Estima tiempos de retiro de tu billetera de juego en Argentina según método, monto y verificación de cuenta.", "url": "https://game-wallet-withdrawal-estimator.onrender.com", "applicationCategory": "UtilityApplication", "operatingSystem": "Web Browser"}</script>
+</head>
+<body data-site-slug="game-wallet-withdrawal-estimator" data-runtime-mode="analysis_tool">
+    <header>
+        <h1>Estimador de Retiro de Billetera de Juego</h1>
+        <p>Estima el tiempo que tardarías en recibir tus fondos.</p>
+    </header>
+
+    <div class="container">
+        <div class="card">
+            <h2>Calculá tu Retiro</h2>
+            <form id="tool-form">
+                <label for="metodoRetiro">Método de Retiro:</label>
+                <select id="metodoRetiro" required>
+                    <option value="">Seleccione un método</option>
+                    <option value="bancaria">Transferencia Bancaria (CBU/CVU)</option>
+                    <option value="billetera">Billetera Virtual (Mercado Pago, Ualá, etc.)</option>
+                    <option value="efectivo">Retiro en Efectivo (Puntos de pago)</option>
+                </select>
+
+                <label for="montoRetiro">Monto a Retirar (ARS):</label>
+                <input type="number" id="montoRetiro" min="100" max="1000000" placeholder="Ej: 5000" required>
+
+                <label for="estadoKYC">Estado de Verificación KYC:</label>
+                <select id="estadoKYC" required>
+                    <option value="">Seleccione su estado</option>
+                    <option value="completo">Verificación Completa (DNI, CUIT/CUIL)</option>
+                    <option value="parcial">Verificación Parcial</option>
+                    <option value="ninguno">Sin Verificación</option>
+                </select>
+
+                <label for="verificacionBancaria">Verificación de Cuenta de Destino:</label>
+                <select id="verificacionBancaria" required>
+                    <option value="">Seleccione su estado</option>
+                    <option value="verificado">Cuenta verificada (mismo titular, alias)</option>
+                    <option value="pendiente">Cuenta pendiente de verificación</option>
+                </select>
+
+                <button type="submit" id="tool-submit">Estimar Tiempo</button>
+            </form>
+        </div>
+
+        <div class="card" id="tool-result">
+            <h3 id="result-headline">Resultado de la Estimación</h3>
+            <p>Completá el formulario para ver tu tiempo de retiro estimado.</p>
+        </div>
+
+        <div class="card full-width">
+            <h2>Consideraciones importantes para tu juego responsable</h2>
+            <p>Retirar tus fondos es parte de una experiencia de juego sana. Entender los tiempos y procesos te ayuda a gestionar mejor tus expectativas y finanzas.</p>
+            <div class="checklist">
+                <h3>Antes de retirar, verificá:</h3>
+                <ul>
+                    <li>Tu cuenta de juego está completamente verificada (KYC).</li>
+                    <li>Los datos de tu cuenta bancaria o billetera virtual (CBU, CVU, alias, DNI/CUIL) son correctos y coinciden con tu identidad.</li>
+                    <li>Cumpliste con los requisitos de apuesta si recibiste bonos o promociones.</li>
+                    <li>El monto a retirar está dentro de los límites mínimos y máximos establecidos por la plataforma.</li>
+                    <li>No hay restricciones activas en tu cuenta por seguridad o juego responsable.</li>
+                </ul>
+            </div>
+            <p>Recordá que el juego debe ser siempre una forma de entretenimiento. Establecé límites de tiempo y dinero, y buscá ayuda si sentís que el juego está afectando tu vida.</p>
+            <a href="#" style="text-decoration: none; display: inline-block; margin-top: 1rem;" data-affiliate-slot="juego-responsable-info">
+                <button style="background-color: var(--primary-color); width: auto;">Más sobre Juego Responsable</button>
+            </a>
+        </div>
+    </div>
+
+    <div class="disclaimer container">
+        <p><strong>Advertencia de Juego Responsable:</strong> Esta herramienta es un estimador y no garantiza tiempos exactos, los cuales pueden variar según la plataforma, carga operativa y políticas bancarias. El juego es para mayores de 18 años. Jugá con moderación. Si creés que tenés un problema con el juego, buscá ayuda profesional. El juego patológico es perjudicial para vos y tu familia.</p>
+    </div>
+
+    <div class="seo-section">
+        <h3>Encontrá la mejor forma de gestionar tus fondos en Argentina</h3>
+        <p>En el mundo de los juegos móviles y plataformas online en Argentina, la rapidez y seguridad al retirar tus ganancias es fundamental. Muchos usuarios se preguntan: "¿Cuánto tarda un retiro de dinero en juegos?", "¿Cómo cobrar CBU en billetera virtual?", o "¿Qué necesito para retirar fondos de una plataforma?". Nuestro estimador te ayuda a entender los tiempos asociados a cada método y los requisitos para una transacción exitosa.</p>
+        <p>Conocé las particularidades de cada opción de retiro:</p>
+        <ul>
+            <li><strong>Transferencia Bancaria (CBU/CVU):</strong> Es el método más tradicional y seguro, ideal para montos mayores. Requiere que tu CBU o CVU esté a tu nombre y coincida con tu DNI.</li>
+            <li><strong>Billeteras Virtuales (Mercado Pago, Ualá, Naranja X, etc.):</strong> Ofrecen velocidad y facilidad, siendo populares para retiros de montos intermedios. Asegurate de tener tu alias o CVU correctamente registrado.</li>
+            <li><strong>Retiro en Efectivo (Puntos de pago):</strong> Para quienes prefieren el efectivo, aunque suele implicar tiempos de procesamiento adicionales y límites específicos.</li>
+        </ul>
+        <p>La verificación KYC (Know Your Customer) es un paso crucial para tu seguridad y para cumplir con las regulaciones de la AFIP. Una cuenta verificada con tu DNI, CUIT o CUIL acelera los procesos y evita demoras. ¡Usá nuestro estimador para planificar tus finanzas de juego de manera inteligente y responsable!</p>
+    </div>
+
+    <script>
+        document.getElementById('tool-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const metodoRetiro = document.getElementById('metodoRetiro').value;
+            const montoRetiro = parseInt(document.getElementById('montoRetiro').value);
+            const estadoKYC = document.getElementById('estadoKYC').value;
+            const verificacionBancaria = document.getElementById('verificacionBancaria').value;
+
+            let tiempoEstimadoMin = 0;
+            let tiempoEstimadoMax = 0;
+            let mensajeAdicional = '';
+
+            // Lógica de estimación
+            if (metodoRetiro === 'bancaria') {
+                tiempoEstimadoMin = 24; // Horas
+                tiempoEstimadoMax = 72; // Horas
+                if (montoRetiro > 50000) {
+                    tiempoEstimadoMax += 24; // Montos grandes pueden demorar más
+                    mensajeAdicional += 'Los retiros de altos montos por transferencia bancaria pueden requerir verificación adicional y demorar un poco más. ';
+                }
+            } else if (metodoRetiro === 'billetera') {
+                tiempoEstimadoMin = 2; // Horas
+                tiempoEstimadoMax = 24; // Horas
+                if (montoRetiro > 25000) {
+                    tiempoEstimadoMax += 12; // Montos grandes
+                    mensajeAdicional += 'Retiros significativos a billeteras virtuales pueden tardar un poco más en procesarse. ';
+                }
+            } else if (metodoRetiro === 'efectivo') {
+                tiempoEstimadoMin = 48; // Horas
+                tiempoEstimadoMax = 96; // Horas
+                mensajeAdicional += 'El retiro en efectivo depende de la disponibilidad en los puntos de pago. ';
+            }
+
+            // Ajuste por estado KYC
+            if (estadoKYC === 'parcial') {
+                tiempoEstimadoMin += 6;
+                tiempoEstimadoMax += 12;
+                mensajeAdicional += 'La verificación parcial de KYC puede generar demoras adicionales. ';
+            } else if (estadoKYC === 'ninguno') {
+                tiempoEstimadoMin += 24;
+                tiempoEstimadoMax += 48;
+                mensajeAdicional += '<strong>¡Importante!</strong> La falta de verificación KYC causará retrasos significativos o impedirá el retiro. ';
+            }
+
+            // Ajuste por verificación bancaria
+            if (verificacionBancaria === 'pendiente') {
+                tiempoEstimadoMin += 12;
+                tiempoEstimadoMax += 24;
+                mensajeAdicional += 'La verificación de la cuenta de destino puede prolongar el proceso. ';
+            }
+
+            // Formato de resultado
+            let resultadoHTML = `<h3>Tu Retiro Estimado:</h3>`;
+            if (estadoKYC === 'ninguno') {
+                resultadoHTML += `<p style="color: red; font-weight: bold;">❌ Tu cuenta necesita verificación completa (KYC) antes de poder retirar. Esto puede demorar el proceso.</p>`;
+                resultadoHTML += `<p>Si completás la verificación, tu retiro podría tardar entre <strong>${tiempoEstimadoMin} y ${tiempoEstimadoMax} horas</strong> hábiles.</p>`;
+            } else {
+                resultadoHTML += `<p>El tiempo estimado para recibir tu dinero es de <strong>entre ${tiempoEstimadoMin} y ${tiempoEstimadoMax} horas hábiles</strong>.</p>`;
+            }
+            
+            if (mensajeAdicional) {
+                resultadoHTML += `<p>${mensajeAdicional}</p>`;
+            }
+
+            resultadoHTML += `<p><strong>Recordá:</strong> Estos tiempos son estimaciones y pueden variar. Siempre revisá las políticas de retiro de tu plataforma de juego.</p>`;
+
+            document.getElementById('tool-result').innerHTML = resultadoHTML;
+        });
+    </script>
+<div id="qa-smoke-result" hidden></div>
+<script id="farmbuilder-affiliate-helper">
+(function () {
+  window.__UTILITY_AFFILIATE_MAP = window.__UTILITY_AFFILIATE_MAP || {};
+  document.addEventListener("click", function (event) {
+    const target = event.target.closest("[data-affiliate-slot]");
+    if (!target) return;
+    const slot = target.getAttribute("data-affiliate-slot");
+    const href = window.__UTILITY_AFFILIATE_MAP[slot];
+    if (!href) return;
+    if (target.tagName && target.tagName.toLowerCase() === "a") {
+      target.setAttribute("href", href);
+      target.removeAttribute("rel");
+      return;
+    }
+    event.preventDefault();
+    window.open(href, "_blank");
+  }, true);
+})();
+</script>
+<script id="farmbuilder-functional-qa">
+(function () {
+  function marker() {
+    let node = document.getElementById("qa-smoke-result");
+    if (node) return node;
+    node = document.createElement("div");
+    node.id = "qa-smoke-result";
+    node.hidden = true;
+    document.body.appendChild(node);
+    return node;
+  }
+
+  let qaFinished = false;
+  let qaWatchdog = null;
+
+  function normalize(text) {
+    return String(text || "").replace(/\s+/g, " ").trim();
+  }
+
+  function findForm() {
+    return document.getElementById("tool-form") || document.querySelector("form");
+  }
+
+  function findResult() {
+    return (
+      document.getElementById("tool-result") ||
+      document.querySelector("[data-result]") ||
+      document.querySelector(".tool-result, .result-card, .result, .results, .output, .preview, .diagnostic, .analysis")
+    );
+  }
+
+  function primaryAction(form) {
+    if (!form) return null;
+    return (
+      document.getElementById("tool-submit") ||
+      form.querySelector("#tool-submit") ||
+      form.querySelector("[data-primary-action]") ||
+      form.querySelector("button[type=submit]") ||
+      form.querySelector("button") ||
+      form.querySelector("input[type=submit]")
+    );
+  }
+
+  function resultSignature(node) {
+    if (!node) return "";
+    const text = normalize(node.textContent);
+    const html = normalize(node.innerHTML).slice(0, 600);
+    return `${text}||${html}`;
+  }
+
+  function resultHeadline(node) {
+    if (!node) return "";
+    const heading = node.querySelector("h1, h2, h3, strong, b");
+    return normalize(heading ? heading.textContent : "");
+  }
+
+  function sampleText(field) {
+    const key = `${field.id || ""} ${field.name || ""} ${field.placeholder || ""}`.toLowerCase();
+    if (/email/.test(key)) return "bonjour@example.com";
+    if (/url|site|website|lien/.test(key)) return "https://example.com/offre-solaire";
+    if (/phone|tel|mobile/.test(key)) return "0612345678";
+    if (/ville|city|localisation|location|region|departement|postal/.test(key)) return "Paris";
+    if (/orientation/.test(key)) return "sud";
+    if (/keyword|theme|topic|sujet|subject/.test(key)) return "energie solaire domestique";
+    if (/titre|title/.test(key)) return "Simulateur solaire maison";
+    if (/nom|name|project/.test(key)) return "Projet Horizon";
+    if (/description|notes|content|message/.test(key)) return "Maison individuelle exposee sud avec toiture exploitable.";
+    return field.placeholder || "France";
+  }
+
+  function sampleNumber(field) {
+    const key = `${field.id || ""} ${field.name || ""}`.toLowerCase();
+    if (/inclinaison|angle|slope/.test(key)) return "30";
+    if (/surface|size|m2|sqm/.test(key)) return "28";
+    if (/annee|year/.test(key)) return "2024";
+    if (/prix|price|budget|cost|amount|montant/.test(key)) return "12000";
+    const min = Number(field.min || "");
+    const max = Number(field.max || "");
+    if (Number.isFinite(min) && Number.isFinite(max) && max >= min) {
+      return String(Math.min(max, Math.max(min, min + Math.round((max - min) * 0.35))));
+    }
+    if (Number.isFinite(min)) return String(Math.max(min, 12));
+    if (Number.isFinite(max)) return String(Math.min(max, 12));
+    return field.value || "12";
+  }
+
+  function applySample(field) {
+    const tag = (field.tagName || "").toLowerCase();
+    const type = (field.type || "").toLowerCase();
+    if (field.disabled) return;
+    if (type === "hidden" || type === "submit" || type === "button" || type === "reset" || type === "image" || type === "file") {
+      return;
+    }
+    const currentValue = normalize(field.value);
+    if (tag === "select") {
+      if (currentValue) return;
+      const option = Array.from(field.options || []).find((item) => item.value && !item.disabled) || field.options[0];
+      if (option) field.value = option.value;
+      return;
+    }
+    if (type === "checkbox") {
+      if (field.checked) return;
+      field.checked = true;
+      return;
+    }
+    if (type === "radio") {
+      if (field.checked) return;
+      field.checked = true;
+      return;
+    }
+    if (type === "date") {
+      if (currentValue) return;
+      field.value = "2026-03-01";
+      return;
+    }
+    if (type === "email") {
+      if (currentValue) return;
+      field.value = "bonjour@example.com";
+      return;
+    }
+    if (type === "url") {
+      if (currentValue) return;
+      field.value = "https://example.com/offre-solaire";
+      return;
+    }
+    if (type === "tel") {
+      if (currentValue) return;
+      field.value = "0612345678";
+      return;
+    }
+    if (type === "color") {
+      if (currentValue) return;
+      field.value = "#2f855a";
+      return;
+    }
+    if (type === "number" || type === "range") {
+      if (currentValue) return;
+      field.value = sampleNumber(field);
+      return;
+    }
+    if (currentValue) return;
+    field.value = sampleText(field);
+  }
+
+  function stamp(status, detail, headline, primary) {
+    if (qaFinished) return;
+    qaFinished = true;
+    if (qaWatchdog) {
+      window.clearTimeout(qaWatchdog);
+      qaWatchdog = null;
+    }
+    const node = marker();
+    node.dataset.status = status;
+    node.dataset.mode = "native-form";
+    node.dataset.detail = detail || "";
+    node.dataset.headline = headline || "";
+    node.dataset.primary = primary || "";
+    node.dataset.viewport = window.innerWidth <= 640 ? "mobile" : "desktop";
+    window.setTimeout(function () {
+      try {
+        window.stop();
+      } catch (_error) {}
+    }, 0);
+  }
+
+  function installModalGuards() {
+    const noop = function () {};
+    const approve = function () { return true; };
+    const empty = function () { return ""; };
+    try { window.alert = noop; } catch (_error) {}
+    try { window.confirm = approve; } catch (_error) {}
+    try { window.prompt = empty; } catch (_error) {}
+  }
+
+  function triggerAction(form, action) {
+    try {
+      if (typeof form.requestSubmit === "function") {
+        form.requestSubmit(action || undefined);
+        return;
+      }
+    } catch (_error) {}
+    if (action && typeof action.click === "function") {
+      action.click();
+      return;
+    }
+    form.dispatchEvent(new Event("submit", { bubbles: true, cancelable: true }));
+  }
+
+  function inspectResult(before, attemptsLeft) {
+    const result = findResult();
+    if (!result) {
+      stamp("fail", "Result area was not found.", "");
+      return;
+    }
+    const after = resultSignature(result);
+    const text = normalize(result.textContent);
+    if (after && after !== before && text.length >= 24) {
+      const primary = result.querySelector("a[href], button[data-href], [data-primary-url]") || document.querySelector("#tool-result a[href]");
+      stamp("pass", "Native form submission updated the result area.", resultHeadline(result), primary ? (primary.getAttribute("href") || primary.getAttribute("data-primary-url") || "") : "");
+      return;
+    }
+    if (attemptsLeft > 0) {
+      window.setTimeout(function () {
+        inspectResult(before, attemptsLeft - 1);
+      }, 250);
+      return;
+    }
+    stamp("fail", "Result area did not render usable output.", resultHeadline(result));
+  }
+
+  function runSmoke() {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("__qa") !== "functional") return;
+    qaWatchdog = window.setTimeout(function () {
+      stamp("fail", "QA smoke timed out before the page reported a usable result.", "");
+    }, 7000);
+    const form = findForm();
+    if (!form) {
+      stamp("fail", "Primary tool form was not found.", "");
+      return;
+    }
+    const result = findResult();
+    const before = resultSignature(result);
+    installModalGuards();
+    try {
+      form.querySelectorAll("input, select, textarea").forEach(applySample);
+    } catch (error) {
+      stamp("fail", error && error.message ? `QA smoke sample failed: ${error.message}` : "QA smoke sample failed before submit.", "");
+      return;
+    }
+    const action = primaryAction(form);
+    try {
+      triggerAction(form, action);
+    } catch (error) {
+      stamp("fail", error && error.message ? `QA smoke submit failed: ${error.message}` : "QA smoke submit failed.", "");
+      return;
+    }
+    inspectResult(before, 10);
+  }
+
+  window.addEventListener("error", function (event) {
+    const message = event && event.message ? event.message : "JavaScript runtime error during QA smoke.";
+    stamp("fail", `QA smoke JS error: ${message}`, "");
+  }, { once: true });
+
+  window.addEventListener("unhandledrejection", function (event) {
+    const reason = event && event.reason;
+    const detail = typeof reason === "string"
+      ? reason
+      : reason && reason.message
+        ? reason.message
+        : "Unhandled promise rejection during QA smoke.";
+    stamp("fail", `QA smoke rejection: ${detail}`, "");
+  }, { once: true });
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", function () {
+      window.setTimeout(runSmoke, 60);
+    }, { once: true });
+  } else {
+    window.setTimeout(runSmoke, 60);
+  }
+})();
+</script>
+</body>
+</html>
